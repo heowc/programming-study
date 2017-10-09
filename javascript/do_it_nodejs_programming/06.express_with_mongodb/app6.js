@@ -2,8 +2,8 @@ const express = require('express');
 const http = require('http');
 
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 var NameModel;
-var NameSchema;
 
 function Mongo(datasource) {
     this.datasource = datasource;
@@ -11,29 +11,11 @@ function Mongo(datasource) {
     this.connect = () => {
         console.log('connecting mongoose');
 
-        let connection = mongoose.createConnection(datasource.url);
+        mongoose.connect(datasource.url, { useMongoClient: true });
+        mongoose.Promise = global.Promise;
         console.log('connected mongoose');
 
-        NameSchema = mongoose.Schema({
-            first_name: String,
-            last_name: String
-        });
-
-        NameSchema
-            .virtual('fullName')
-            .set((fullName) => {
-                let array = fullName.split(' ');
-                this.first_name = array[1];
-                this.last_name = array[0];
-                console.log('setting virtual fullName : %s, %s', this.last_name, this.first_name);
-            })
-            .get(() => {
-                return this.last_name + ' ' + this.first_name;
-            });
-        console.log('defined schema');
-
-        NameModel = connection.model("name", NameSchema);
-        console.log('defined model');
+        createNameProperty();
     };
 
     this.getUrl = () => {
@@ -55,20 +37,54 @@ http.createServer(app).listen(app.get('port'), () => {
 
 const doTest = () => {
     let fullName = 'wonchul heo';
-
-    let name = new NameModel({
-	    last_name: 'heo',
-	    first_name: 'wonchul'
-    });
-
-    // console.log(name.fullName);
-
+    
     addName(fullName);
 	findAll((err, results) => {
         if (err) throw err;
 
         console.log(results);
     });
+}
+
+const createNameProperty = () => {
+    let NameSchema = new Schema({
+        first_name: String,
+        last_name: String
+    });
+
+    // NameSchema
+    //     .virtual('fullName')
+    //     .set(function(fullName) {
+    //         let array = fullName.split(' ');
+    //         this.first_name = array[1];
+    //         this.last_name = array[0];
+    //         console.log('setting virtual fullName : %s, %s', this.last_name, this.first_name);
+    //     })
+    //     .get(function() {
+    //         return this.last_name + ' ' + this.first_name;
+    //     });
+    class Name {
+        constructor(first_name, last_name) {
+            this.first_name = first_name;
+            this.last_name = last_name;
+        }
+
+        set fullName(value) {
+            let array = value.split(' ');
+            this.first_name = array[0];
+            this.last_name = array[1];
+        }
+
+        get fullName() {
+            return `${this.first_name} ${this.last_name}`;
+        }
+    }
+    NameSchema.loadClass(Name);
+
+    console.log('defined schema');
+
+    NameModel = mongoose.model("name", NameSchema);
+    console.log('defined model');
 }
 
 // 사용자 조회 함수
@@ -86,7 +102,6 @@ const findAll = (callback) => {
 
 // 사용자 추가 함수
 const addName = (fullName) => {
-    let name = new NameModel({ fullName: fullName }, { setters: true});
-    console.log(name);
+    let name = new NameModel({ fullName: fullName });
     name.save();
 }
