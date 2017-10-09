@@ -1,0 +1,18 @@
+{
+  "name": "06.express_with_mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "heo won chul",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "crypto": "^1.0.1",
+    "express": "^4.16.1",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.12.0"
+  }
+}
