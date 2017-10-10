@@ -1,31 +1,25 @@
-
 // 외장 모듈
 const express = require('express');
 const http = require('http');
-const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 // 사용자 정의 모듈
-const SchemaModule = require('./modules/Schema');
+const property = require('./config/property');
+const database = require('./database/database');
+const routeLoader = require('./routes/routeLoader');
 
 const app = express();
+const router = express.Router();
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || property.port);
+
+app.use(bodyParser.json());
 
 http.createServer(app).listen(app.get('port'), () => {
 	console.log('started express server : ' + app.get('port'));
 
-	createMongoose();
-	createSchema();
+	database.init(app, property);
+	routeLoader.init(app, router, property);
 });
 
-const createMongoose = () => {
-	mongoose.connect('mongodb://localhost/local', { useMongoClient: true });
-	mongoose.Promise = global.Promise;
-};
 
-const createSchema = () => {
-	let schemaModule = new SchemaModule(mongoose);
-	schemaModule.create();
-
-	// let userModel= mongoose.model('user', schemaModule.user);
-};

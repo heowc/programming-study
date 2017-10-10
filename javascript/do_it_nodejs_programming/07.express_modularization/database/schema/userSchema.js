@@ -1,15 +1,12 @@
 const crypto = require('crypto');
 
-// Schema Module 정의
-class SchemaModule {
+// UserSchema 정의
+class UserSchema {
 
-	constructor(mongoose) {
-		this.mongoose = mongoose;
-	}
+	static create(mongoose) {
+		console.log('defined user\'s schema');
 
-
-	create() {
-		this.user = this.mongoose.Schema({
+		let userSchema = mongoose.Schema({
 			id: { type: String, required: true, unique: true, 'default': '' },
 			hashed_password: { type: String, required: true, 'default': '' },
 			salt: {type: String, required: true },
@@ -18,9 +15,10 @@ class SchemaModule {
 			create_at: { type: Date, index: { unique: false }, 'default': Date.now() },
 			update_at: { type: Date, index: { unique: false }, 'default': Date.now() }
 		});
-		console.log('defined user\'s schema');
+
+		return userSchema;
 	}
 }
 
 // 프로토 타입 할당
-module.exports = SchemaModule;
+module.exports = UserSchema;
