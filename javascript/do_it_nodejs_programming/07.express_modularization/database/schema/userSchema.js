@@ -1,9 +1,9 @@
-const crypto = require('crypto');
+// const crypto = require('crypto');
 
 // UserSchema 정의
 class UserSchema {
 
-	static create(mongoose) {
+	create(mongoose) {
 		console.log('defined user\'s schema');
 
 		let userSchema = mongoose.Schema({
@@ -21,4 +21,4 @@ class UserSchema {
 }
 
 // 프로토 타입 할당
-module.exports = UserSchema;
+module.exports = new UserSchema();

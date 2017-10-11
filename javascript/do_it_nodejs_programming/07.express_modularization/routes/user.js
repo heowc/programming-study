@@ -17,9 +17,9 @@ class User {
 
 	find(req, res) {
 		let id = req.params.id;
+		let Model = req.app.get('schemas')['UserModel'];
 
-		req.app.get('schemas')['UserModel']
-		.find({ id: id }, (err, results) => {
+		Model.find({ id: id }, (err, results) => {
 			if (err) {
 				res.status(500).send({ message: 'fail' });
 			} else {
