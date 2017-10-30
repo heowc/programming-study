@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>chat example</title>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.slim.js"></script>
+</head>
+<body>
+	<h3>채팅 클라이언트</h3>
+	<br>
+
+	<div class="chat-connect-area">
+		<input id="host-input" value="localhost">
+		<input id="port-input" value="3000">
+		<input type="button" id="connect-btn" value="연결">
+	</div>
+
+	<div class="chat-message-area">
+		<input id="recepient-input" value="ALL">
+		<input id="data-input" placeholder="input data">
+		<input type="button" id="message-btn" value="전송">
+	</div>
+
+	<hr/>
+	<p>결과 : </p>
+	<div id="chat-area">
+
+	</div>
+</body>
+<script src="chat.js"></script>
+</html>
