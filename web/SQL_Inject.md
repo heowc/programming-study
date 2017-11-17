@@ -12,7 +12,7 @@ SQL Injection는 [OWASP(The Open Web Application Security Project)](https://ko.w
 http://www.example.com/article?keyword={keyword}
 ```
 
-그리고 간단하게 게시글의 제목을 '예제' 라는 단어가 들어가는 것을 조회하는 쿼리를 작성하자.
+그리고 간단하게 게시글의 제목을 `예제` 라는 단어가 들어가는 것을 조회하는 쿼리를 작성하자.
 
 ```sql
 SELECT  SEQ
@@ -32,7 +32,7 @@ FROM    ARTICLE
 WHERE   TITLE LIKE '%1' UNION SELECT FROM * ARTICLE;--%'
 ```
 
-'keyword' 에 __1' UNION SELECT FROM * ARTICLE;--__ 를 넣음으로써, 모든 게시글을 가져오게 된다.
+__keyword__ 에 `1' UNION SELECT FROM * ARTICLE;--` 를 넣음으로써, 모든 게시글을 가져오게 된다.
 
 예제는 단순히 ARTICLE을 가져오는 것이라고 볼 수 있지만, 큰 범위에서 보면 다른 테이블의 데이터를 탈취할 수 도 있다는 말이 된다.
 
@@ -40,7 +40,7 @@ WHERE   TITLE LIKE '%1' UNION SELECT FROM * ARTICLE;--%'
 
 이런 취약점을 고려해서 코딩하는 것을 `시큐어코딩`이라고 한다.
 
-Java를 사용하는 경우, 한국인터넷진흥원에서 가이드를 내놓은 것이 있으니 참고해도 좋다. ([한국인터넷진흥원 - JAVA 시큐어코딩 가이드](https://www.kisa.or.kr/public/laws/laws3_View.jsp?mode=view&p_No=259&b_No=259&d_No=55&ST=T&SV=))
+Java를 사용하는 경우, 한국인터넷진흥원의 가이드를 참고해도 좋다. ([한국인터넷진흥원 - JAVA 시큐어코딩 가이드](https://www.kisa.or.kr/public/laws/laws3_View.jsp?mode=view&p_No=259&b_No=259&d_No=55&ST=T&SV=))
 
 #### 1. JDBC - 문제점
 
@@ -95,7 +95,7 @@ pstmt.setString(1, "%" + keyword + "%");
 </select>
 ```
 
-데이터베이스 특성마다 다르니 알맞게 참고하자
+데이터베이스 환경마다 다르니 알맞게 참고하자
 
 ```sql
 -- [MySQL]
