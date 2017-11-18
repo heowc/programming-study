@@ -12,7 +12,7 @@ SQL Injection는 [OWASP(The Open Web Application Security Project)](https://ko.w
 http://www.example.com/article?keyword={keyword}
 ```
 
-그리고 간단하게 게시글의 제목을 `예제` 라는 단어가 들어가는 것을 조회하는 쿼리를 작성하자.
+그리고 간단하게 제목에 `예제` 라는 단어가 포함하는 게시글을 조회하는 쿼리를 작성해보도록 하자.
 
 ```sql
 SELECT  SEQ
@@ -22,7 +22,7 @@ FROM    ARTICLE
 WHERE   TITLE LIKE '%예제%'
 ```
 
-하지만 __다른 의도__ 로 사용될 수 있다.
+하지만 결과와는 다르게 __다른 의도__ 로 사용될 수 있다.
 
 ```sql
 SELECT  SEQ
@@ -32,15 +32,15 @@ FROM    ARTICLE
 WHERE   TITLE LIKE '%1' UNION SELECT FROM * ARTICLE;--%'
 ```
 
-__keyword__ 에 `1' UNION SELECT FROM * ARTICLE;--` 를 넣음으로써, 모든 게시글을 가져오게 된다.
+__keyword__ 에 `1' UNION SELECT FROM * ARTICLE;--` 를 넣음으로써, 모든 게시글을 가져오게 되는 것 이다.
 
-예제는 단순히 ARTICLE을 가져오는 것이라고 볼 수 있지만, 큰 범위에서 보면 다른 테이블의 데이터를 탈취할 수 도 있다는 말이 된다.
+예제는 단순히 ARTICLE을 가져오는 것이라고 볼 수 있지만, 큰 범위에서 보면 다른 테이블의 데이터를 탈취할 수 도 있고 다른 행위도 할 수 있다는 말이 된다.
 
 ## 해결법
 
 이런 취약점을 고려해서 코딩하는 것을 `시큐어코딩`이라고 한다.
 
-Java를 사용하는 경우, 한국인터넷진흥원의 가이드를 참고해도 좋다. ([한국인터넷진흥원 - JAVA 시큐어코딩 가이드](https://www.kisa.or.kr/public/laws/laws3_View.jsp?mode=view&p_No=259&b_No=259&d_No=55&ST=T&SV=))
+한국인터넷진흥원의 가이드를 참고해도 좋다. ([한국인터넷진흥원 - JAVA 시큐어코딩 가이드](https://www.kisa.or.kr/public/laws/laws3_View.jsp?mode=view&p_No=259&b_No=259&d_No=55&ST=T&SV=))
 
 #### 1. JDBC - 문제점
 
@@ -109,7 +109,7 @@ TITLE LIKE '%' + #{keyword} + '%'
 ```
 
 xBatis의 경우 `$`와 `#`의 차이를 알아야 한다.
-`$`와 `#`는 JDBC 사용 시, `Statement`와 `PreparedStatement`를 사용하는 것과 동일하다.
+`$`와 `#`는 JDBC 사용 시, `Statement`와 `PreparedStatement`를 사용하는 것과 동등한 개념이라고 볼 수 있다.
 
 #### 3. 계정
 
