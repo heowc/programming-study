@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>components</title>
+
+	<script type="text/javascript" src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="example">
+	<global-component></global-component>
+</div>
+
+<p>&nbsp;</p>
+
+<div id="example2">
+	<area-component></area-component>
+</div>
+
+<p>&nbsp;</p>
+
+<div id="example3">
+	<area-component2></area-component2>
+</div>
+
+</body>
+<script type="text/javascript">
+	// 전역 등록
+	Vue.component('global-component', {
+		template: '<div>사용자 정의 전역 컴포넌트 입니다!</div>'
+	});
+
+	// 지역 등록
+	const child = {
+		template: '<div>사용자 정의 지역 컴포넌트 입니다!</div>'
+	};
+
+	new Vue({
+		el: '#example',
+	});
+
+	new Vue({
+		el: '#example2',
+		components: {
+			'area-component': child
+		}
+	});
+
+	// 지역 등록2
+	const child2 = {
+		template: '<global-component>사용자 정의 지역 컴포넌트 입니다!</global-component>'
+	};
+
+	new Vue({
+		el: '#example3',
+		components: {
+			'area-component2': child2
+		}
+	});
+
+</script>
+</html>

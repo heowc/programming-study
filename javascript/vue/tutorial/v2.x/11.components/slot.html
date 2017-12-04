@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>components - slot</title>
+
+	<script type="text/javascript" src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="example">
+	<h1>나는 부모 컴포넌트의 제목입니다</h1>
+	<my-component>
+		<p>이것은 원본 컨텐츠 입니다.</p>
+		<p>이것은 원본 중 추가 컨텐츠 입니다</p>
+	</my-component>
+</div>
+
+<p>&nbsp;</p>
+
+</body>
+<script type="text/javascript">
+	Vue.component('my-component', {
+		template : '<div>' +
+					'  <h2>나는 자식 컴포넌트의 제목입니다</h2>' +
+					'  <slot>' +
+					'    제공된 컨텐츠가 없는 경우에만 보실 수 있습니다.' +
+					'  </slot>' +
+					'</div>'
+	});
+
+	new Vue({
+		el : '#example'
+	});
+</script>
+</html>
