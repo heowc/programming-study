@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+
+	<script type="text/javascript" src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div id="app">
+		{{ message }}
+	</div>
+
+	<p>&nbsp;</p>
+
+	<div id="app-2">
+		<span v-bind:title="message">
+			내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!
+		</span>
+	</div>
+
+	<p>&nbsp;</p>
+
+	<div id="app-3">
+		<p v-if="seen">이제 나를 볼 수 있어요</p>
+	</div>
+
+	<p>&nbsp;</p>
+
+	<div id="app-4">
+		<ol>
+			<li v-for="todo in todos">
+				{{ todo.text }}
+			</li>
+		</ol>
+	</div>
+
+	<p>&nbsp;</p>
+
+	<div id="app-5">
+		<p>{{ message }}</p>
+		<button v-on:click="reverseMessage">메시지 뒤집기</button>
+	</div>
+
+	<p>&nbsp;</p>
+
+	<div id="app-6">
+		<p>{{ message }}</p>
+		<input v-model="message" />
+	</div>
+
+	<p>&nbsp;</p>
+
+	<div id="app-7">
+		<ol>
+			<todo-item
+					v-for="item in groceryList"
+					v-bind:todo="item"
+					v-bind:key="item.id">
+			</todo-item>
+		</ol>
+	</div>
+
+</body>
+<script type="text/javascript">
+	const app = new Vue({
+		el: '#app',
+		data: {
+			message: '안녕하세요 Vue!'
+		}
+	});
+	// console에서 `app.message` 값을 변경하면 그에 따라 다시 렌더링 된다.
+
+	const app2 = new Vue({
+		el: '#app-2',
+		data: {
+			message: `이 페이지는 ${new Date()}에 로드되었습니다.`
+		}
+	});
+
+	const app3 = new Vue({
+		el: '#app-3',
+		data: {
+			seen: false
+		}
+	});
+	// console에서 `app.seen` 값을 true로 변경하면 보인다.
+
+	const app4 = new Vue({
+		el: '#app-4',
+		data: {
+			todos: [
+				{ text: 'JavaScript 배우기' },
+				{ text: 'Vue 배우기' },
+				{ text: '무언가 멋진 것을 만들기' }
+			]
+		}
+	});
+
+	setTimeout(() => {
+		app4.todos.push({ text: "New item" });
+	}, 300);
+
+
+	const app5 = new Vue({
+		el: '#app-5',
+		data: {
+			message: '안녕하세요! Vue.js!'
+		},
+		methods: {
+			reverseMessage: () => {
+				app5.message = app5.message.split('').reverse().join('');
+			}
+		}
+	});
+
+	const app6 = new Vue({
+		el: '#app-6',
+		data: {
+			message: '안녕하세요 Vue!'
+		}
+	});
+
+	// todo-item 이름을 가진 컴포넌트를 정의합니다
+	Vue.component('todo-item', {
+		props: ['todo'],
+		template: '<li>{{ todo.text }}</li>'
+	});
+
+	const app7 = new Vue({
+		el: '#app-7',
+		data: {
+			groceryList: [
+				{ id: 0, text: 'Vegetables' },
+				{ id: 1, text: 'Cheese' },
+				{ id: 2, text: 'Whatever else humans are supposed to eat' }
+			]
+		}
+	});
+
+	setTimeout(() => {
+		app7.groceryList.push({id:3, text: 'New item'});
+	}, 600);
+
+
+</script>
+</html>
