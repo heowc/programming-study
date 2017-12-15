@@ -25,6 +25,10 @@ public class Point /*implements Cloneable*/ {
 
 	@Override
 	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+
 		if (Objects.isNull(obj)) {
 			return false;
 		}

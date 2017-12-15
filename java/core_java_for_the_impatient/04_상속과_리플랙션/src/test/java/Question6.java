@@ -24,6 +24,6 @@ public class Question6 {
 	public void test_equals() {
 		assertEquals(discountedItem.equals(item), true); // x.equals(y) == true
 		assertEquals(item.equals(discountedItem2), true); // y.equals(z) == true
-		assertEquals(discountedItem.equals(discountedItem2), false); // x.equals(z) == false
+		assertEquals(discountedItem2.equals(discountedItem), false); // x.equals(z) == false
 	}
 }

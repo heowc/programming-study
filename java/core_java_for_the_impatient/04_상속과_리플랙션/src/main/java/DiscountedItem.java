@@ -13,12 +13,12 @@ public class DiscountedItem extends Item {
 			return false;
 		}
 
-		if (getClass() != otherObject.getClass()) {
-			return true;
+		if (otherObject instanceof DiscountedItem) {
+			DiscountedItem discountedItem = (DiscountedItem) otherObject;
+			return this.discount == discountedItem.discount;
 		}
 
-		DiscountedItem discountedItem = (DiscountedItem) otherObject;
-		return this.discount == discountedItem.discount;
+		return true;
 	}
 
 	public int hashCode() {
