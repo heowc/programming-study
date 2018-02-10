@@ -66,6 +66,7 @@ try (OutputStream out = ...) {
     
         > 빅 엔디언: 상위 바이트가 먼저 온다. <br/>
         리틀 엔디언: 하위 바이트가 먼저 온다.
+        
 - ISO 8859-1
     - 1바이트
     - 서유럽 언어의 악센트 문자가 포함
@@ -205,7 +206,7 @@ Path homeDireactory = Paths.get("/home/heowc");
 
 - `Files.list`: 디렉토리 항목 반환
 - `Files.walk`: 디렉토리 항목 반환(자손 디렉토리 모두)
-- `Files.walkFilTree`: 자식 디렉토리부터 순회하여 항목 반환
+- `Files.walkFileTree`: 자식 디렉토리부터 순회하여 항목 반환
 
 
 ## URL 커넥션
