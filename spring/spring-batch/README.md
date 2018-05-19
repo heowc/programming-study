@@ -8,3 +8,4 @@
 - [새로운 Spring Batch 4](./spring-batch-4.md)
 - [Batch Domain 용어](./domain-launage-of-batch.md)
 - [Job 구성 및 실행](./configuring-and-running-job.md)
+- [Step 구성](./configuring-step.md)
