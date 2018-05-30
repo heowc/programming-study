@@ -10,3 +10,4 @@
 - [Job 구성 및 실행](./configuring-and-running-job.md)
 - [Step 구성](./configuring-step.md)
 - [ItemReader와 ItemWriter](./iteamreader-itemwriter.md)
+- [확장과 병렬 ](./scaling_and_parallel-processing.md)
