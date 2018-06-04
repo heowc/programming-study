@@ -38,3 +38,8 @@
 2. 스타일 변경은 한번에 처리한다. (clone element -> replace elment)
 3. 테이블 사용을 지양한다.
 4. 스타일 변경을 최적화한다. (ex. DOM 끝단 노드에서 변경, CSS 최소화)
+
+## 참고
+
+- https://github.com/nhnent/fe.javascript/wiki/Reflow%EC%99%80-Repaint
+- https://d2.naver.com/helloworld/59361
