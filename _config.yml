@@ -2,6 +2,4 @@ name: heowc
 author: heowc
 description: 허원철의 개발 블로그
 
-baseurl: /programming-study/repo
-
 remote_theme: poole/lanyon
