@@ -6,3 +6,5 @@ baseurl: /programming-study
 url: https://heowc.github.io
 
 remote_theme: aweekj/kiko-now
+
+theme: jekyll-theme-slate
