@@ -5,6 +5,4 @@ description: 허원철의 개발 블로그
 baseurl: /programming-study
 url: https://heowc.github.io
 
-remote_theme: aweekj/kiko-now
-
 theme: jekyll-theme-slate
