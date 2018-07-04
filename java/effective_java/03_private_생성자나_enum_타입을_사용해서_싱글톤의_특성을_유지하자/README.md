@@ -4,11 +4,36 @@
 
  ## 방법1.
 
+```java
+public class Singleton {
+
+    public static final Singleton INSTANCE = new Singleton();
+
+    // ...
+}
+
+// Singleton.INSTANCE
+```
 - 생성자를 private로 선언
 - public static final로 인스턴스 초기화
 - `AccessibleObject.setAccessible`로 private 생성자 호출 가능
 
 ## 방법2.
+
+```java
+public class Singleton {
+
+    private static final Singleton INSTANCE = new Singleton();
+
+    public static Singleton getInstance() {
+        return INSTANCE;
+    }
+
+    // ...
+}
+
+// Singleton.getInstance()
+```
 
 - 생성자를 private로 선언
 - private static final로 초기화된 인스턴스를 `getInstance`로만 접근
@@ -32,3 +57,8 @@
 - 열거형 타입 구현
 - 직렬화나 리플렉션 자동 지원
 - **아직 널리 적용되지 않았지만 가장 좋은 방법(?)**
+
+```java
+public enum Singleton {
+    INSTANCE;
+}
