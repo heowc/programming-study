@@ -2,7 +2,7 @@
 
 하나의 인스턴스만 생성되는 클래스
 
- ## 방법1.
+## 방법1.
 
 ```java
 public class Singleton {
