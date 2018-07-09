@@ -37,3 +37,7 @@
 - `equals()`를 오버라이드 할 때는 `hashCode()`도항상 오버라이드 한다.
 -  너무 지나치게 통일 여부를 비교하려 하변 문제가 생기기 쉽다.
 -  `equals()`의 인자 타입을 Object 대신 다른 타입으로 바꾸지 말자.
+
+### 참고
+
+- https://projectlombok.org/features/EqualsAndHashCode

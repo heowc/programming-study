@@ -13,3 +13,7 @@
 
 - 모든 객체가 동일한 hashCode가 나오는 것은 **최악의 메소드**이다.
 - 자바 플랫폼 라이브러리의 많은 클래스들은 자신의 `hashCode()`에서 어떤 연산을 거쳐 정확하게 어떤 값을 반환하는지에 대한 명세를 갖고 있다. (API 문서를 찾아보자. [String](https://docs.oracle.com/javase/7/docs/api/java/lang/String.html)/[Integer](https://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html)/[Date](https://docs.oracle.com/javase/7/docs/api/java/util/Date.html))
+
+### 참고
+
+- https://projectlombok.org/features/EqualsAndHashCode
