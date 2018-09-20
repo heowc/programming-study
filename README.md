@@ -4,5 +4,6 @@
 - [devops](./devops)
 - [java](./java)
 - [javascript](./javascript)
+- [orm](./orm)
 - [spring](./spring)
 - [web](./web)
