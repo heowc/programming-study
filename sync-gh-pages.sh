@@ -24,3 +24,6 @@ git add -A && git commit -m "sync repo" && git push
 
 echo 'change branch: master'
 git checkout master
+
+echo 'delete repo directory'
+rm -rf repo
