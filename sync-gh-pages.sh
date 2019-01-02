@@ -13,14 +13,14 @@ if [[ `existBranch 'gh-pages'` -eq 'true' ]]; then
     git checkout gh-pages && git pull
 else
     echo 'change branch & checkout: gh-pages'
-#    git checkout -b gh-pages origin/gh-pages
+    git checkout -b gh-pages origin/gh-pages
 fi
 
-#echo 'sync master branch from submodule of gh-pages branch'
-#git submodule update --remote --merge
-#
-#echo 'push origin/gh-pages'
-#git add -A && git commit -m "sync repo" && git push
-#
-#echo 'change branch: master'
-#git checkout master
+echo 'sync master branch from submodule of gh-pages branch'
+git submodule update --remote --merge
+
+echo 'push origin/gh-pages'
+git add -A && git commit -m "sync repo" && git push
+
+echo 'change branch: master'
+git checkout master
