@@ -23,8 +23,8 @@ RUN set -xe; \
     git config user.email "heowc1992@gmail.com"; \
     \
     echo 'sync master branch from submodule of gh-pages branch'; \
-    git submodule update --remote --merge; \
-
+    git submodule update --init --recursive; \
+    git submodule update --remote; \
     if [ -z "$(git status | grep 'nothing to commit')" ]; then \
         echo 'push origin/gh-pages'; \
         git add -A; \
