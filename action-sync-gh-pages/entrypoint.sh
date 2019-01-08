@@ -1,4 +1,4 @@
-set -xe
+#!/bin/bash
 
 git clone -b gh-pages https://github.com/heowc/programming-study.git
 cd programming-study
