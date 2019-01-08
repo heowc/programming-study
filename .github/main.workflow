@@ -5,5 +5,5 @@ workflow "workflow" {
 
 action "Sync Branch" {
   uses = "heowc/programming-study/action-sync-gh-pages@master"
-  secrets = ["GITHUB_TOKEN"]
+  secrets = ["SYNC_TOKEN"]
 }
