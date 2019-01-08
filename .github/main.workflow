@@ -1,5 +1,5 @@
 workflow "workflow" {
-  on = "push"
+  on = "pill_request"
   resolves = "Sync Branch"
 }
 
