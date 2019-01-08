@@ -1,1 +1,1 @@
-sh -c "echo Success"
+exec "echo Success"
