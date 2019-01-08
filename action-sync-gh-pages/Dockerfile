@@ -9,7 +9,8 @@ LABEL "com.github.actions.description"="Sync master branch from submodule of gh-
 LABEL "com.github.actions.icon"="terminal"
 LABEL "com.github.actions.color"="gray-dark"
 
-RUN apt install -y git && \
+RUN apt update && \
+    apt install -y git && \
     rm -rf /var/lib/apt/lists/*
 
 RUN echo 'git clone programming-study (branch: gh-pages) ...' && \

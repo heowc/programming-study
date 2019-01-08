@@ -1,4 +1,4 @@
-workflow "New workflow" {
+workflow "workflow" {
   on = "push"
   resolves = "Sync Branch"
 }
