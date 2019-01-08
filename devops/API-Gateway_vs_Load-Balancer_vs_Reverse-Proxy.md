@@ -30,7 +30,7 @@
 
 ![Alt Forward-Proxy](https://upload.wikimedia.org/wikipedia/commons/6/67/Reverse_proxy_h2g2bob.svg)
 
- ### 참고
+### 참고
 
 - https://en.wikipedia.org/wiki/Reverse_proxy
 - https://www.lesstif.com/pages/viewpage.action?pageId=21430345
