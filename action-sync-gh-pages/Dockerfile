@@ -29,5 +29,5 @@ RUN set -xe; \
         echo 'push origin/gh-pages'; \
         git add -A; \
         git commit -m "sync repo"; \
-        git push --quiet "https://${GITHUB_TOKEN}:x-oauth-basic@https://github.com/heowc/programming-study.git" gh-pages > /dev/null 2>&1; \
+        git push; \
     fi
