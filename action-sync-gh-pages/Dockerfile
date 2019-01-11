@@ -11,4 +11,4 @@ LABEL "com.github.actions.color"="gray-dark"
 
 COPY entrypoint.sh /entrypoint.sh	
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh", $REPO_ACCESS_TOKEN]

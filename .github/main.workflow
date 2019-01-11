@@ -6,5 +6,4 @@ workflow "workflow" {
 action "Sync Branch" {
   uses = "heowc/programming-study/action-sync-gh-pages@master"
   secrets = ["REPO_ACCESS_TOKEN"]
-  args = "$REPO_ACCESS_TOKEN"
 }
