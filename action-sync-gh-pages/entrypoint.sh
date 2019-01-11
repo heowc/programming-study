@@ -21,5 +21,5 @@ if [ -z "$(git status | grep 'nothing to commit')" ]; then
     echo 'push origin/gh-pages'	
     git add -A	
     git commit -m "sync repo"	
-    git push --quiet "https://${REPO_ACCESS_TOKEN}:x-oauth-basic@https://github.com/heowc/programming-study.git" gh-pages > /dev/null 2>&1	
+    git push "https://${REPO_ACCESS_TOKEN}:x-oauth-basic@https://github.com/heowc/programming-study.git"
 fi
