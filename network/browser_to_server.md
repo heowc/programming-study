@@ -16,11 +16,11 @@
 - 등록된 도메인 이름과 공용 IP 주소가 있는 개인이나 회사는 공용 DNS 서버를 만들어서 도메인에 대한 DNS 레코드를 호스팅할 수 있음
 - 호스팅 회사에 따라 DNS 레코드를 수정할 수 있고 없을 수 도 있다.
 
-### 참고
-- 가비아는 도메인 등록 기관이면서 호스팅 회사이다.
-- 카페24는 호스팅만 하는 회사이다.
+> * 참고
+> - 가비아는 도메인 등록 기관이면서 호스팅 회사이다.
+> - 카페24는 호스팅만 하는 회사이다.
 
-### 번외)
+#### 번외)
 - [DNSSEC(Domain Name System Security Extension)](https://xn--3e0bx5euxnjje69i70af08bea817g.xn--3e0b707e/jsp/resources/dns/dnssecInfo/dnssecInfo.jsp)
 
 ### 네임서버
