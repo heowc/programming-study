@@ -16,14 +16,14 @@ else
     git checkout -b gh-pages origin/gh-pages
 fi
 
-echo 'sync master branch from submodule of gh-pages branch'
+echo 'sync main branch from submodule of gh-pages branch'
 git submodule update --remote --merge
 
 echo 'push origin/gh-pages'
 git add -A && git commit -m "sync repo" && git push
 
-echo 'change branch: master'
-git checkout master
+echo 'change branch: main'
+git checkout main
 
 echo 'delete repo directory'
 rm -rf repo
