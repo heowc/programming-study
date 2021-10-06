@@ -78,3 +78,37 @@ java -Xshare:off -XX:+UseAppCDS -XX:DumpLoadedClassList=hello.lst -cp hello.jar 
 ### Java 11
 
 https://openjdk.java.net/projects/jdk/11/
+
+- Nest-Based Access Control
+> https://openjdk.java.net/jeps/181
+
+- Epsilon: A No-Op Garbage Collector
+> https://openjdk.java.net/jeps/318
+> - GC가 없는 가비지 콜렉터
+> - 읽었던 책 중에 관련한 내용이 있었는데... 기억이 나질 않는다... 😅
+
+- HTTP Client
+> https://openjdk.java.net/jeps/321
+> - http2 를 지원하는 공식 http client
+> - `HttpConnection`을 대체할 수 있음
+> - reactive stream, websocket 등등 지원
+> - 해당 api를 소개한 영상이나 글을 본적이 있는데 꽤나 사용성이 구리다는 얘길 들었는데... 조만간 사용해봐야 할 듯 하다.
+
+- Local-Variable Syntax for Lambda Parameters
+> https://openjdk.java.net/jeps/323
+> - 람다 펑션에 사용되는 파라미터에 `var` 사용 가능하도록 지원
+
+- Launch Single-File Source-Code Programs
+> https://openjdk.java.net/jeps/330
+> "SheBang" 파일 지원
+
+- Low-Overhead Heap Profiling
+> https://openjdk.java.net/jeps/331
+
+- Transport Layer Security (TLS) 1.3
+> https://openjdk.java.net/jeps/332
+> - TLS 1.3 구현
+
+- Deprecate the Nashorn JavaScript Engine
+> https://openjdk.java.net/jeps/335
+> - Nashorn JavaScript Engine 제거될 예정 (참조: https://openjdk.java.net/jeps/372)
