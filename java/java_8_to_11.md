@@ -10,10 +10,9 @@ https://openjdk.java.net/projects/jdk9/
 - JPMS = Project Jigsaw
 > 모듈화와 관련 있으며, 패키징시에 조금 더 작게 만들기 위함
 > 프레임워크를 쓰는 입장에서 이를 줄일 수 있는 방법이 있을까... 싶긴하다.
-> 스프링
+> - 스프링
 > - https://github.com/spring-projects/spring-framework/issues/18079
 > - https://github.com/spring-projects/spring-framework/issues/18289
-
 
 - JShell
 > REPL (Read-Eval-Print-Loop)
@@ -31,9 +30,9 @@ https://openjdk.java.net/projects/jdk9/
 
 - JVM에 대한 통합 로깅 시스템
 > https://openjdk.java.net/jeps/158
+> - Command Options: https://openjdk.java.net/jeps/158#Command-line-options
 > - tags: gc, compiler, threads, ...
 > - levels: error, warning, info, debug, ...
-> - Command Options: https://openjdk.java.net/jeps/158#Command-line-options
 
 ### Java 10
 
@@ -56,7 +55,7 @@ var list = List.of(1, 2, 3);
 
 - Application Class-Data Sharing(CDS)
 > https://openjdk.java.net/jeps/310
-> - 공통 클래스 메타데이터를 공유 저장소를 사용함으로써 시작시 성능, 소요시간 단축
+> - 공통 클래스 메타데이터를 공유 저장소로 사용함으로써 시작시 성능, 소요시간 단축
 
 ```bash
 java -Xshare:off -XX:+UseAppCDS -XX:DumpLoadedClassList=hello.lst -cp hello.jar HelloWorld
@@ -69,8 +68,8 @@ java -Xshare:off -XX:+UseAppCDS -XX:DumpLoadedClassList=hello.lst -cp hello.jar 
 
 - Experimental Java-Based JIT Compiler
 > https://openjdk.java.net/jeps/317
-> 자바기반의 JIT 컴파일러 실험적 도입(Graal)
-> GraalVM이 자바기반의 컴파일러를 사용하고 있고 Java 11부터 지원햇던 것으로 기억나는 것으로 보아 이와 관련있는 내용인 듯 하다.
+> - 자바기반의 JIT 컴파일러 실험적 도입(Graal)
+> - GraalVM이 자바기반의 컴파일러를 사용하고 있고 Java 11부터 지원햇던 것으로 기억나는 것으로 보아 이와 관련있는 내용인 듯 하다.
 
 - Root Certificates
 > https://openjdk.java.net/jeps/319
@@ -85,7 +84,7 @@ https://openjdk.java.net/projects/jdk/11/
 - Epsilon: A No-Op Garbage Collector
 > https://openjdk.java.net/jeps/318
 > - GC가 없는 가비지 콜렉터
-> - 읽었던 책 중에 관련한 내용이 있었는데... 기억이 나질 않는다... 😅
+> - 읽었던 책 중에 관련한 내용이 있었는데... 기억이 나질 않는다... 😅 ([자바 최적화](https://book.naver.com/bookdb/book_detail.nhn?bid=14796595)인가..?)
 
 - HTTP Client
 > https://openjdk.java.net/jeps/321
@@ -100,7 +99,7 @@ https://openjdk.java.net/projects/jdk/11/
 
 - Launch Single-File Source-Code Programs
 > https://openjdk.java.net/jeps/330
-> "SheBang" 파일 지원
+> - "SheBang" 파일 지원
 
 - Low-Overhead Heap Profiling
 > https://openjdk.java.net/jeps/331
