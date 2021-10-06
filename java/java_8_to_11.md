@@ -1,3 +1,8 @@
+### Java 8에서 11로 전환하기
+
+- https://docs.microsoft.com/ko-kr/java/openjdk/transition-from-java-8-to-java-11?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json
+- https://docs.microsoft.com/ko-kr/java/openjdk/reasons-to-move-to-java-11?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json
+
 ### Java 9
 
 https://openjdk.java.net/projects/jdk9/
@@ -24,6 +29,12 @@ https://openjdk.java.net/projects/jdk9/
 - properties 파일 ISO-8859-1 -> UTF-8
 > https://openjdk.java.net/jeps/226
 
+- JVM에 대한 통합 로깅 시스템
+> https://openjdk.java.net/jeps/158
+> - tags: gc, compiler, threads, ...
+> - levels: error, warning, info, debug, ...
+> - Command Options: https://openjdk.java.net/jeps/158#Command-line-options
+
 ### Java 10
 
 https://openjdk.java.net/projects/jdk/10/
@@ -33,3 +44,37 @@ https://openjdk.java.net/projects/jdk/10/
 ```java
 var list = List.of(1, 2, 3);
 ```
+
+- GC Interface
+> https://openjdk.java.net/jeps/304
+> - 개선된 GC를 도입하기 위한 기반 작업
+
+- G1 GC에서의 병렬 full GC
+> https://openjdk.java.net/jeps/307
+> - 이전 G1 GC에서의 full GC는 단일 스레드로 동작
+> - 이를 병렬로 처리할 수 있도록 개선하여 보다 낮은 레이턴시를 갖고자함
+
+- Application Class-Data Sharing(CDS)
+> https://openjdk.java.net/jeps/310
+> - 공통 클래스 메타데이터를 공유 저장소를 사용함으로써 시작시 성능, 소요시간 단축
+
+```bash
+java -Xshare:off -XX:+UseAppCDS -XX:DumpLoadedClassList=hello.lst -cp hello.jar HelloWorld
+```
+
+- Thread-Local Handshakes
+> https://openjdk.java.net/jeps/312
+> - global VM safepoint = STW (Stop The World)
+> - 전체 쓰레드가 넘추는 것이 아닌 개별 쓰레드가 멈추게 하고자 함
+
+- Experimental Java-Based JIT Compiler
+> https://openjdk.java.net/jeps/317
+> 자바기반의 JIT 컴파일러 실험적 도입(Graal)
+> GraalVM이 자바기반의 컴파일러를 사용하고 있고 Java 11부터 지원햇던 것으로 기억나는 것으로 보아 이와 관련있는 내용인 듯 하다.
+
+- Root Certificates
+> https://openjdk.java.net/jeps/319
+
+### Java 11
+
+https://openjdk.java.net/projects/jdk/11/
